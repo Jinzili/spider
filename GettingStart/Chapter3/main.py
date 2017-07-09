@@ -21,6 +21,24 @@ def build_request_post():
     print response.read()
 
 
+def taonvlang():
+    url = 'https://mm.taobao.com/tstar/search/tstar_model.do?_input_charset=utf-8'
+    data = {
+        'q': '',
+        'viewFlag': 'A',
+        'sortType': 'default',
+        'searchStyle': '',
+        'searchRegion': 'city:',
+        'searchFansNum': '',
+        'currentPage': 2,
+        'pageSize': '100'
+    }
+    values = urllib.urlencode(data)
+    request = urllib2.Request(url, values)
+    response = urllib2.urlopen(request)
+    print response.read()
+
+
 def build_request_get():
     values = dict()
     values['username'] = 'jinzili777'
@@ -35,4 +53,5 @@ def build_request_get():
 if __name__ == '__main__':
     # build_request()
     # build_request_post()
-    build_request_get()
+    # build_request_get()
+    taonvlang()
